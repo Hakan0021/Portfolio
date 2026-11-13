@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Dev Portfolio | Game Design & Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Minimalist Sticky Navigation -->
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#" class="logo" id="siteLogo">GAME<span>DEV</span></a>
+      
+      <div class="nav-controls">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#projects" data-i18n="nav.projects">Games & Prototypes</a></li>
+          <li><a href="#skills" data-i18n="nav.skills">Skill Set</a></li>
+          <li><a href="#contact" class="btn-primary nav-cta" data-i18n="nav.contact">Get in Touch</a></li>
+        </ul>
+        
+        <!-- Theme Toggle Button (Dark / Light Mode) -->
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch Theme" aria-pressed="true">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="theme-label" id="themeLabel">Dark</span>
+        </button>
+
+        <!-- Language Toggle Button -->
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch Language">
+          <span class="lang-active" id="langLabel">EN</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-inactive" id="langSubLabel">TR</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         MAIN PORTFOLIO VIEW (Hero, Projects Grid, Skills Bento)
+         ====================================================================== -->
+    <div id="portfolioHomeView" class="view-section view-active">
+      <!-- Minimalist 60-30-10 Architectural Hero Section -->
+      <section id="hero" class="hero-section container">
+        <div class="hero-grid">
+          <div class="hero-meta">
+            <div class="hero-badge" data-i18n="hero.badge">DIGITAL GAME DESIGNER & DEVELOPER</div>
+          </div>
+          <div class="hero-main">
+            <h1>
+              <span class="plain-text" data-i18n="hero.titleLine1">Coding Mechanics,</span><br />
+              <span class="gradient-text" data-i18n="hero.titleLine2">Designing Worlds</span>
+            </h1>
+            <p data-i18n="hero.subtitle">
+              Development portfolio focused on gameplay systems, UI architecture, level design, and interactive game audio.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary" data-i18n="hero.ctaPrimary">Explore Projects</a>
+              <a href="https://github.com/" target="_blank" rel="noopener" class="btn-secondary" data-i18n="hero.ctaSecondary">GitHub Profile</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects, Search & Filtering Section -->
+      <section id="projects" class="projects-section container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
+          <div class="projects-controls">
+            <!-- Real-Time Search Bar -->
+            <div class="search-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="search"
+                id="projectSearchInput"
+                class="search-input"
+                data-i18n-placeholder="projects.searchPlaceholder"
+                placeholder="Search games, engines, or tags..."
+                aria-label="Search games, engines, or tags"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="filter-buttons" id="filterContainer" role="group" aria-label="Project category filters">
+              <button class="filter-btn active" type="button" data-filter="all" data-i18n="projects.filterAll">All</button>
+              <button class="filter-btn" type="button" data-filter="unity">Unity</button>
+              <button class="filter-btn" type="button" data-filter="unreal">Unreal / UEFN</button>
+              <button class="filter-btn" type="button" data-filter="system" data-i18n="projects.filterSystem">Systems & UI</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamically Populated Project Grid -->
+        <div class="projects-grid" id="projectsGrid"></div>
+      </section>
+
+      <!-- Bento-Box Skill Set Section -->
+      <section id="skills" class="skills-section container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="skills.title">Development Tools & Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-box bento-span-5">
+            <h3 data-i18n="skills.engines">Game Engines</h3>
+            <div class="tag-list">
+              <span>Unity 3D / 2D</span>
+              <span>Unreal Engine 5</span>
+              <span>UEFN</span>
+            </div>
+          </div>
+          <div class="skill-box bento-span-7">
+            <h3 data-i18n="skills.programming">Programming & Systems</h3>
+            <div class="tag-list">
+              <span>C#</span>
+              <span>Blueprints</span>
+              <span data-i18n="skills.tagInventory">Inventory & UI Systems</span>
+              <span data-i18n="skills.tagGameplay">Gameplay Mechanics</span>
+            </div>
+          </div>
+          <div class="skill-box bento-span-7">
+            <h3 data-i18n="skills.designAudio">Design & Audio</h3>
+            <div class="tag-list">
+              <span>Game Design Document (GDD)</span>
+              <span>FMOD Studio</span>
+              <span>Level Design</span>
+            </div>
+          </div>
+          <div class="skill-box bento-span-5">
+            <h3 data-i18n="skills.workflow">Workflow & Version Control</h3>
+            <div class="tag-list">
+              <span>Git & GitHub</span>
+              <span>Trello</span>
+              <span data-i18n="skills.tagAgile">Agile / Team Collaboration</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================================================================
+         DEDICATED IMMERSIVE PROJECT DETAIL VIEW
+         ====================================================================== -->
+    <section id="projectDetailView" class="detail-view container" aria-hidden="true">
+      <!-- Top Bar with Visible Back Button -->
+      <div class="detail-topbar">
+        <button type="button" class="btn-secondary detail-back-btn" id="backToProjectsBtn" data-i18n="detail.back">
+          ← Back to Projects
+        </button>
+      </div>
+
+      <!-- Detail Hero Header -->
+      <header class="detail-header">
+        <div class="detail-badge-row">
+          <span class="hero-badge" id="detailRoleBadge">GAME DESIGNER & DEVELOPER</span>
+          <span class="detail-category-pill" id="detailEngineBadge">Unity</span>
+        </div>
+        <h1 class="detail-title" id="detailTitle">Game 1</h1>
+        <p class="detail-lead" id="detailOverview">Project overview text...</p>
+
+        <!-- Team, Timeline, Engine & Role Metrics Bar -->
+        <div class="detail-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-label" data-i18n="detail.metricRole">Role</span>
+            <strong class="metric-value" id="metricRoleVal">-</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label" data-i18n="detail.metricEngine">Engine & Core Tech</span>
+            <strong class="metric-value" id="metricEngineVal">-</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label" data-i18n="detail.metricTeam">Team & Scope</span>
+            <strong class="metric-value" id="metricTeamVal">-</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label" data-i18n="detail.metricTimeline">Timeline & Status</span>
+            <strong class="metric-value" id="metricTimelineVal">-</strong>
+          </div>
+        </div>
+      </header>
+
+      <!-- Showcase Media Banner -->
+      <div class="detail-media-showcase" id="detailMediaBanner" role="button" tabindex="0" aria-label="Open Media Lightbox">
+        <span class="engine-badge" id="detailBannerEngine"></span>
+        <span class="role-badge" id="detailBannerRole"></span>
+        <div class="detail-banner-stage" id="detailBannerStage">
+          <span class="media-placeholder" id="detailMediaPlaceholder"></span>
+        </div>
+        <span class="lightbox-hint-badge" data-i18n="detail.expandMedia">⤢ Click to Expand</span>
+      </div>
+
+      <!-- Interactive Screenshot / Media Thumbnail Gallery (3 Clickable Slots) -->
+      <div class="detail-gallery-section">
+        <div class="detail-gallery-header">
+          <span class="detail-card-eyebrow" data-i18n="detail.galleryEyebrow">MEDIA & SCREENSHOT GALLERY</span>
+          <span class="detail-gallery-hint" data-i18n="detail.galleryHint">Select a thumbnail to switch the active preview or click Inspect for full-screen</span>
+        </div>
+        <div class="detail-gallery-grid" id="detailGalleryGrid"></div>
+      </div>
+
+      <!-- Deep Architecture, Interactive Gameplay Loop, GDD, Tech Stack & Mechanics Sandbox Grid -->
+      <div class="detail-content-grid">
+        <!-- 1. Deep System Architecture -->
+        <article class="detail-card detail-span-6">
+          <div class="detail-card-eyebrow" data-i18n="detail.architectureEyebrow">01 / SYSTEM ENGINEERING</div>
+          <h2 class="detail-card-title" data-i18n="detail.architectureTitle">Deep Technical Architecture</h2>
+          <p class="detail-card-text" id="detailArchitectureText"></p>
+          <ul class="detail-bullet-list" id="detailArchitecturePoints"></ul>
+        </article>
+
+        <!-- 2. Interactive Core Gameplay Loop Inspector -->
+        <article class="detail-card detail-span-6">
+          <div class="detail-card-eyebrow" data-i18n="detail.gameplayLoopEyebrow">02 / INTERACTIVE FLOW INSPECTOR</div>
+          <h2 class="detail-card-title" data-i18n="detail.gameplayLoopTitle">Core Gameplay & System Loop</h2>
+          <p class="loop-inspector-hint" data-i18n="detail.loopClickHint">Click any step to expand its Input Trigger, System Logic, and Visual & Audio Feedback:</p>
+          <!-- Interactive Stepper: each step expands an inline sub-panel (rendered by js/main.js) -->
+          <div class="loop-steps" id="detailGameplayLoop" aria-live="polite"></div>
+        </article>
+
+        <!-- 3. GDD & Design Breakdown -->
+        <article class="detail-card detail-span-6">
+          <div class="detail-card-eyebrow" data-i18n="detail.gddEyebrow">03 / DESIGN DOCUMENTATION</div>
+          <h2 class="detail-card-title" data-i18n="detail.gddTitle">GDD & Design Breakdown</h2>
+          <p class="detail-card-text" id="detailGddSummary"></p>
+          <ul class="detail-bullet-list" id="detailGddPillars"></ul>
+        </article>
+
+        <!-- 4. Tech Stack & Key Mechanics -->
+        <article class="detail-card detail-span-6">
+          <div class="detail-card-eyebrow" data-i18n="detail.techStackEyebrow">04 / IMPLEMENTATION & STACK</div>
+          <h2 class="detail-card-title" data-i18n="detail.techStackTitle">Tech Stack & Key Mechanics</h2>
+          <div class="tag-list detail-tags" id="detailTechTags"></div>
+          <ul class="detail-bullet-list" id="detailFeaturesList"></ul>
+        </article>
+
+        <!-- 5. Interactive Sandbox — Live Mechanics & Feel Simulator -->
+        <article class="detail-card detail-span-12 sandbox-card">
+          <div class="sandbox-header">
+            <div>
+              <div class="detail-card-eyebrow" data-i18n="sandbox.eyebrow">05 / INTERACTIVE SANDBOX</div>
+              <h2 class="detail-card-title" data-i18n="sandbox.title">Live Mechanics & Feel Simulator</h2>
+              <p class="detail-card-text sandbox-desc" data-i18n="sandbox.subtitle">
+                Tune the sliders, then click the canvas to take control: move with ← → or A / D, jump with W / ↑ / Space, and fire with F. When idle, the entity runs an auto-demo.
+              </p>
+            </div>
+            <div class="sandbox-header-actions">
+              <button type="button" class="btn-primary sandbox-btn" id="sandboxTriggerBtn" data-i18n="sandbox.triggerAction">
+                ▶ Test / Trigger Action
+              </button>
+              <button type="button" class="btn-secondary sandbox-btn" id="sandboxResetBtn" data-i18n="sandbox.resetBtn">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <div class="sandbox-body">
+            <!-- Left: 3 Live Parameter Sliders & Telemetry -->
+            <div class="sandbox-controls">
+              <div class="sandbox-control-group">
+                <div class="sandbox-control-label">
+                  <label for="sandboxSpeedSlider" data-i18n="sandbox.paramSpeed">Movement Speed / Velocity</label>
+                  <span class="sandbox-val-badge" id="sandboxSpeedVal">180 px/s</span>
+                </div>
+                <input type="range" id="sandboxSpeedSlider" class="sandbox-slider" min="60" max="320" step="10" value="180" />
+              </div>
+
+              <div class="sandbox-control-group">
+                <div class="sandbox-control-label">
+                  <label for="sandboxJumpSlider" data-i18n="sandbox.paramJump">Jump / Impulse Force</label>
+                  <span class="sandbox-val-badge" id="sandboxJumpVal">420 N</span>
+                </div>
+                <input type="range" id="sandboxJumpSlider" class="sandbox-slider" min="200" max="620" step="10" value="420" />
+              </div>
+
+              <div class="sandbox-control-group">
+                <div class="sandbox-control-label">
+                  <label for="sandboxFireRateSlider" data-i18n="sandbox.paramFireRate">Cooldown / Fire Rate</label>
+                  <span class="sandbox-val-badge" id="sandboxFireRateVal">0.30 s</span>
+                </div>
+                <input type="range" id="sandboxFireRateSlider" class="sandbox-slider" min="8" max="100" step="1" value="30" />
+              </div>
+
+              <!-- Live Telemetry -->
+              <div class="sandbox-telemetry">
+                <div class="telemetry-item">
+                  <span class="telemetry-label" data-i18n="sandbox.metricCooldown">Weapon Cooldown</span>
+                  <div class="telemetry-bar-track">
+                    <div class="telemetry-bar-fill" id="sandboxCooldownBar" style="width: 100%"></div>
+                  </div>
+                </div>
+                <div class="telemetry-stats-row">
+                  <div class="telemetry-chip">
+                    <span data-i18n="sandbox.statApex">Jump Apex:</span>
+                    <strong id="sandboxApexStat">63 px</strong>
+                  </div>
+                  <div class="telemetry-chip">
+                    <span data-i18n="sandbox.statFireRate">Fire Rate:</span>
+                    <strong id="sandboxFireRateStat">3.3 /s</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Playable 2D HTML5 Canvas (focusable for keyboard input) -->
+            <div class="sandbox-stage-wrapper">
+              <canvas id="sandboxCanvas" tabindex="0" aria-label="Interactive mechanics simulator. Focus and use arrow keys or WASD to move, Space to jump, F to fire."></canvas>
+              <div class="sandbox-canvas-overlay">
+                <span class="sandbox-status-pill" id="sandboxStatusPill">AUTO DEMO</span>
+              </div>
+              <span class="sandbox-controls-hint" data-i18n="sandbox.controlsHint">Click canvas · ← → / A D move · W / ↑ / Space jump · F fire</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Detail Footer Actions (External Links + Prev/Next Game Switching) -->
+      <div class="detail-footer-actions">
+        <div class="detail-resource-links">
+          <a href="#" target="_blank" rel="noopener" class="btn-primary" id="detailDemoBtn" data-i18n="detail.playDemo">
+            Play Demo / Itch.io
+          </a>
+          <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="detailDocBtn" data-i18n="detail.readGdd">
+            Read GDD (PDF)
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noopener" class="btn-secondary" id="detailGithubBtn" data-i18n="projects.sourceCode">
+            Source Code (GitHub)
+          </a>
+        </div>
+
+        <div class="detail-project-switcher">
+          <button type="button" class="btn-secondary project-nav-btn" id="prevProjectBtn" data-i18n="detail.prevGame">
+            ← Previous Game
+          </button>
+          <button type="button" class="btn-secondary project-nav-btn" id="nextProjectBtn" data-i18n="detail.nextGame">
+            Next Game →
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full-Screen CSS Lightbox Modal for Screenshot / Media Inspection -->
+  <div id="mediaLightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Screenshot Lightbox">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">✕</button>
+      <div class="lightbox-stage" id="lightboxStage">
+        <span class="media-placeholder" id="lightboxPlaceholder"></span>
+      </div>
+      <div class="lightbox-footer">
+        <button type="button" class="btn-secondary lightbox-nav-btn" id="lightboxPrevBtn" data-i18n="detail.prevSlide">← Prev</button>
+        <span class="lightbox-caption" id="lightboxCaption">Game 1 — 01 / 03</span>
+        <button type="button" class="btn-secondary lightbox-nav-btn" id="lightboxNextBtn" data-i18n="detail.nextSlide">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Developer Debug Terminal Overlay (Easter Egg & Quick Nav) -->
+  <div id="debugConsoleModal" class="console-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Developer Debug Console">
+    <div class="console-backdrop" id="consoleBackdrop"></div>
+    <div class="console-window">
+      <div class="console-header">
+        <div class="console-title-group">
+          <span class="console-dot dot-red"></span>
+          <span class="console-dot dot-amber"></span>
+          <span class="console-dot dot-green"></span>
+          <span class="console-title" data-i18n="console.title">DEV_ENGINE_CONSOLE v2.5 (Press / or ~ to toggle)</span>
+        </div>
+        <button type="button" class="console-close-btn" id="consoleCloseBtn" aria-label="Close Debug Console">✕</button>
+      </div>
+
+      <!-- Preset Quick Command Chips -->
+      <div class="console-presets">
+        <span class="console-presets-label" data-i18n="console.quickCommands">Quick Commands:</span>
+        <button type="button" class="console-chip" data-cmd="help">help</button>
+        <button type="button" class="console-chip" data-cmd="list">list</button>
+        <button type="button" class="console-chip" data-cmd="open 1">open 1</button>
+        <button type="button" class="console-chip" data-cmd="open 2">open 2</button>
+        <button type="button" class="console-chip" data-cmd="open 3">open 3</button>
+        <button type="button" class="console-chip" data-cmd="open 4">open 4</button>
+        <button type="button" class="console-chip" data-cmd="theme">theme</button>
+        <button type="button" class="console-chip" data-cmd="lang">lang</button>
+        <button type="button" class="console-chip" data-cmd="clear">clear</button>
+      </div>
+
+      <!-- Console Output Log -->
+      <div class="console-output" id="consoleOutput" aria-live="polite"></div>
+
+      <!-- Command Input Form -->
+      <form class="console-input-row" id="consoleForm" autocomplete="off">
+        <span class="console-prompt">&gt;_</span>
+        <input
+          type="text"
+          id="consoleCommandInput"
+          class="console-input"
+          data-i18n-placeholder="console.placeholder"
+          placeholder="Type a command (help, list, open 1, theme, lang)..."
+          aria-label="Console command input"
+        />
+        <button type="submit" class="btn-primary console-run-btn" data-i18n="console.run">Run</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-content">
+      <h2 data-i18n="footer.title">Let's Build Games Together</h2>
+      <p class="footer-subtitle" data-i18n="footer.subtitle">Feel free to reach out for collaborations, game dev teams, or studio opportunities.</p>
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://itch.io/" target="_blank" rel="noopener">Itch.io</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:example@mail.com" data-i18n="footer.email">Email</a>
+        <button type="button" class="copy-email-btn" id="copyEmailBtn" data-email="example@mail.com" data-i18n="footer.copyEmail">
+          Copy Email
+        </button>
+      </div>
+      <p class="copyright" data-i18n="footer.copyright">&copy; 2026 Game Dev Portfolio. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Copy Email Toast Notification -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite" aria-hidden="true">
+    <span id="toastMessage" data-i18n="footer.emailCopied">Email copied!</span>
+  </div>
+
+  <!-- Floating Developer Console Toggle Button (shortcut: / or ~) -->
+  <button type="button" id="debugConsoleToggle" class="debug-console-toggle" aria-label="Open Developer Console (/ or ~)">
+    <span class="console-toggle-prompt">⌘ /</span>
+    <span data-i18n="console.toggleBtn">Console</span>
+  </button>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
